@@ -60,8 +60,7 @@ ROOT_URLCONF = 'df.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +119,17 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 600,
     'height': 400,
 }
+
+    # 发送邮件的类( 默认配置? 所以可以不用配置)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    # 邮件服务器域名
+EMAIL_HOST = 'smtp.126.com'
+    # 邮件服务器地址
+EMAIL_PORT = 25
+    # 发送邮件的邮箱 ，根据情况修改
+EMAIL_HOST_USER = 'goku3000@126.com'
+    # 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'goku3000'
+    # 其实这个配置是多余的，只是需要在每次发邮件的时候使用，所以当作常量存在这里
+    # 收件人看到的发件人，前面的是名字 ， 注意<> 中的邮箱地址必须和EMAIL_HOST_USER一致
+EMAIL_FROM = 'python<goku3000@126.com>'
